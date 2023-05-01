@@ -47,3 +47,6 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+
+// ! RTK Query:
+// Нічого

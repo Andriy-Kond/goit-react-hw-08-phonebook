@@ -109,3 +109,6 @@ const sliceAsyncThunk = createSlice({
 });
 
 export default sliceAsyncThunk.reducer;
+
+// ! RTK Query:
+// Нічого
