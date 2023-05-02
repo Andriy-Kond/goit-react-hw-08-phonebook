@@ -3,9 +3,12 @@ import css from './Contacts.module.css';
 // ^ Рефакторінг у Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { MarkupContacts } from './MarkupContacts';
-import { selectContacts, selectFilter } from 'store/selectors';
+import {
+  selectContacts,
+  selectFilter,
+} from 'redux/phonebook/selectorsPhonebook';
 import { useEffect } from 'react';
-import { fetchContacts } from 'services/fetch';
+import { fetchContacts } from 'redux/phonebook/fetchContacts';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -30,7 +33,7 @@ export const Contacts = () => {
   return (
     filteredContacts.length > 0 && (
       <ul className={css.list}>
-        {filteredContacts.map(({ name, phone: number, id }) => {
+        {filteredContacts.map(({ name, number, id }) => {
           return (
             <MarkupContacts
               key={id}
@@ -77,7 +80,7 @@ export const Contacts = () => {
 //   return (
 //     filteredContacts?.length > 0 && (
 //       <ul className={css.list}>
-//         {filteredContacts.map(({ name, phone: number, id }) => {
+//         {filteredContacts.map(({ name, number: number, id }) => {
 //           return (
 //             <MarkupContacts
 //               key={id}

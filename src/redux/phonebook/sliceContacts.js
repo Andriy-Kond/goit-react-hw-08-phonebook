@@ -1,4 +1,4 @@
-import { addContact, deleteContact, fetchContacts } from '../services/fetch';
+import { fetchContacts, addContact, deleteContact } from './fetchContacts';
 
 const { createSlice, isAnyOf } = require('@reduxjs/toolkit');
 
@@ -59,7 +59,7 @@ const handleFulfilled = state => {
 const namesArr = [fetchContacts, addContact, deleteContact];
 const addStatusToName = status => namesArr.map(name => name[status]);
 
-const sliceAsyncThunk = createSlice({
+const sliceContacts = createSlice({
   name: 'fetchContacts',
   initialState,
 
@@ -108,7 +108,7 @@ const sliceAsyncThunk = createSlice({
   },
 });
 
-export default sliceAsyncThunk.reducer;
+export default sliceContacts.reducer;
 
 // ! RTK Query:
 // Нічого

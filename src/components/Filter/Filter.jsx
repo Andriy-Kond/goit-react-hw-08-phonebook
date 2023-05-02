@@ -2,8 +2,8 @@ import css from './Filter.module.css';
 
 // ^ Рефакторінг у Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { filterInStateContacts } from 'store/sliceFilter';
-import { selectFilter } from 'store/selectors';
+import { filterInStateContacts } from 'redux/phonebook/sliceFilter';
+import { selectFilter } from 'redux/phonebook/selectorsPhonebook';
 
 export const Filter = () => {
   const dispatch = useDispatch();

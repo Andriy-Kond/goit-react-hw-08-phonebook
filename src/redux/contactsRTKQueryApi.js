@@ -1,8 +1,7 @@
-// ! RTK Query:
-
+// // ! RTK Query:
 // import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// // RTK Query поєднує в собі запити на бекенд (fetch.js) і Redux (sliceAsyncThunk.js)
+// // RTK Query поєднує в собі запити на бекенд (fetch.js) і Redux (sliceAsyncThunk.js (перейменоване у sliceContacts.js) )
 // // Store і Reducer потрібні
 // // productsApi = createApi
 // export const contactsRTKQuery = createApi({

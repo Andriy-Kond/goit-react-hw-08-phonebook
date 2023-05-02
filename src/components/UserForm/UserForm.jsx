@@ -6,8 +6,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import { addInStateContact } from '../../store/SlicePhoneBook';
 // import { nanoid } from '@reduxjs/toolkit';
-import { selectContacts } from 'store/selectors';
-import { addContact } from 'services/fetch';
+import { selectContacts } from 'redux/phonebook/selectorsPhonebook';
+import { addContact } from 'redux/phonebook/fetchContacts';
 
 export const UserForm = () => {
   // dispatch - це як тригер, що відбулась подія. Але нам треба вказати яка саме
@@ -40,7 +40,7 @@ export const UserForm = () => {
     } else {
       // спроба створити об'єкт:
       const isCreated = dispatch(
-        addContact({ name: userName, phone: userNumber })
+        addContact({ name: userName, number: userNumber })
       );
 
       // Якщо новий об'єкт створений успішно, то обнуляємо поля інпутів у формі
@@ -141,7 +141,7 @@ export const UserForm = () => {
 //       // спроба створити об'єкт:
 //       const isCreated = await addContact({
 //         name: userName,
-//         phone: userNumber,
+//         number: userNumber,
 //       });
 //       console.log('setContact >> isCreated.data:', isCreated.data);
 

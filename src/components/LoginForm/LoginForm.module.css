@@ -1,0 +1,22 @@
+.form {
+  width: 320px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.container {
+  min-height: 'calc(100vh - 250px)';
+  display: 'flex';
+  align-items: 'center';
+  justify-content: 'center';
+}
+
+.title {
+  font-weight: 500px;
+  font-size: 48px;
+  text-align: center;
+}

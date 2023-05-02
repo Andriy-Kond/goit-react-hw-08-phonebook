@@ -13,10 +13,10 @@ export const fetchContacts = createAsyncThunk(
       const response = await axios.get('/users/current');
       return response.data;
     } catch (error) {
-      console.log(
-        'thunkAPI.rejectWithValue(error.message) :>> ',
-        rejectWithValue(error.message)
-      );
+      // console.log(
+      //   'thunkAPI.rejectWithValue(error.message) :>> ',
+      //   rejectWithValue(error.message)
+      // );
       return rejectWithValue(error.message);
     }
   }
@@ -47,32 +47,6 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
-
-// USER
-// POST   /users​/signup    Create a new user
-// POST ​  /users​/login     Login user
-// POST ​  /users​/logout    Log out user
-
-// User{
-// id	string Backend-generated unique identifier.
-// name*	string Username.
-// email*	string E-mail address.
-// password*	string Password.
-// }
-// example: OrderedMap { "name": "Adrian Cross", "email": "across@mail.com", "password": "examplepwd12345" }
-
-// CONTACT
-// GET ​    /contacts         Get all user contacts
-// POST ​   /contacts         Create a new contact
-// DELETE ​ /contacts​/{contactId}    Delete contact.
-// PATCH ​  /contacts​/{contactId}    Update an existing contact
-
-// Contact{
-// id	string Backend-generated unique identifier.
-// name*	string Contact name.
-// number*	string Phone number of the contact.
-// }
-// example: OrderedMap { "name": "Jacob Mercer", "number": "761-23-96" }
 
 // ! RTK Query:
 // Нічого
