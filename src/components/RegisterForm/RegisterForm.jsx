@@ -33,7 +33,8 @@ export const RegisterForm = () => {
       return;
     }
 
-    const isLogged = dispatch(
+    // const isLogged =
+    dispatch(
       fetchRegister({
         name: userName,
         email: userEmail,
