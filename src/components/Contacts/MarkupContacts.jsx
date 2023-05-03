@@ -15,7 +15,7 @@ export function MarkupContacts({ name, number, id }) {
   return (
     <li className={css.listItem}>
       {name}: {number}
-      <button className={css.deleteBtn} onClick={handleDeleteContact}>
+      <button className="btn btn-outline-primary" onClick={handleDeleteContact}>
         Delete
       </button>
     </li>

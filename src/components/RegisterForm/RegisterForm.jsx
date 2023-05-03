@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchRegister } from 'redux/auth/fetchAuth';
 import css from './RegisterForm.module.css';
 
@@ -53,11 +53,24 @@ export const RegisterForm = () => {
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <label className={css.label}>
         Username
-        <input type="text" name="name" onChange={getInput} value={userName} />
+        <input
+          className="form-control me-2"
+          // type="search"
+          placeholder="Search"
+          aria-label="Search"
+          type="text"
+          name="name"
+          onChange={getInput}
+          value={userName}
+        />
       </label>
       <label className={css.label}>
         Email
         <input
+          className="form-control me-2"
+          // type="search"
+          placeholder="Search"
+          aria-label="Search"
           type="email"
           name="email"
           onChange={getInput}
@@ -67,13 +80,19 @@ export const RegisterForm = () => {
       <label className={css.label}>
         Password
         <input
+          className="form-control me-2"
+          // type="search"
+          placeholder="Search"
+          aria-label="Search"
           type="password"
           name="password"
           onChange={getInput}
           value={userPassword}
         />
       </label>
-      <button type="submit">Register</button>
+      <button type="submit" className="btn btn-outline-primary">
+        Register
+      </button>
     </form>
   );
 };

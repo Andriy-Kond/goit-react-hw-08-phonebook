@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { App } from 'components/App';
 import './index.css';
+import './baseCSS/modern-normalize.css';
+import './baseCSS/project-normalize.css';
 
 // Для підключення Redux треба огорнути застосунок у Provider:
 import { Provider } from 'react-redux';

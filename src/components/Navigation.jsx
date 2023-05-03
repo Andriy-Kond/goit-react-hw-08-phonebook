@@ -1,18 +1,21 @@
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { Logo } from './Logo';
+
+import { selectIsToken } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
+
+import styled from 'styled-components';
 
 const StyledNavLink = styled(NavLink)`
-  color: black;
-
   &.active {
-    color: orange;
+    color: #578ddd;
   }
 `;
 
 export const Navigation = () => {
+  const isToken = useSelector(selectIsToken);
+
   return (
-    <nav
+    <div
       style={{
         display: 'flex',
 
@@ -20,9 +23,8 @@ export const Navigation = () => {
         gap: '10px',
       }}
     >
-      <Logo />
       <StyledNavLink to="/">Home</StyledNavLink>
-      <StyledNavLink to="/contacts">Contacts</StyledNavLink>
-    </nav>
+      {isToken && <StyledNavLink to="/contacts">Contacts</StyledNavLink>}
+    </div>
   );
 };

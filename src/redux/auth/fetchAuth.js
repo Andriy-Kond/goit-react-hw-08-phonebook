@@ -126,10 +126,9 @@ export const fetchCurrentUser = createAsyncThunk(
     }
 
     tokenFn.set(receivedToken);
-    console.log('persistedToken:', receivedToken);
+
     try {
       const response = await axios.get('/users/current');
-      console.log('response.data :>> ', response.data);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);

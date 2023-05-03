@@ -17,10 +17,7 @@ export const Logo = () => {
           margin: 0,
           fontSize: '24px',
         }}
-      >
-        {/* <Link to="/">DriveMovies</Link> */}
-      </h1>
-      {/* {children} */}
+      ></h1>
     </div>
   );
 };

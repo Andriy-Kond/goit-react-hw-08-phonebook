@@ -1,17 +1,20 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
-
-import SharedLayout from './SharedLayout';
-import NotFoundPage from './NotFoundPage/NotFoundPage';
+import { Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { lazy, useEffect } from 'react';
+import { fetchCurrentUser } from 'redux/auth/fetchAuth';
+// import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 import HomePage from 'pages/Home/HomePage';
-import RegisterPage from 'pages/Register/RegisterPage';
-import LoginPage from 'pages/Login/LoginPage';
-import ContactsPage from 'pages/Contacts/ContactsPage';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchCurrentUser } from 'redux/auth/fetchAuth';
+import SharedLayout from './SharedLayout/SharedLayout';
+import PrivateRoute from './PrivatRoute';
+import PublicRoute from './PublicRoute';
+import { selectIsRefreshing } from 'redux/auth/selectors';
+import { PreLoader } from './Preloader/PreLoader';
 
-// ^ Рефакторінг у Redux
+const NotFoundPage = lazy(() => import('./NotFoundPage/NotFoundPage'));
+const RegisterPage = lazy(() => import('pages/Register/RegisterPage'));
+const LoginPage = lazy(() => import('pages/Login/LoginPage'));
+const ContactsPage = lazy(() => import('pages/Contacts/ContactsPage'));
 
 export const App = () => {
   // * Логіка для обробки токена при перезавантаженні сторінки:
@@ -22,37 +25,69 @@ export const App = () => {
   }, [dispatch]);
   // */ Логіка для обробки токена при перезавантаженні сторінки:
 
-  // /register - публічний маршрут реєстрації нового користувача з формою
-  // /login - публічний маршрут логіна існуючого користувача з формою
-  // /contacts - приватний маршрут для роботи зі списком контактів користувача
+  const isFetching = useSelector(selectIsRefreshing);
+  // const isToken = useSelector(selectIsToken);
+  // /         - ПУБЛІЧНИЙ НЕОБМЕЖЕНИЙ маршрут
+  // /register - ПУБЛІЧНИЙ ОБМЕЖЕНИЙ маршрут реєстрації нового користувача з формою
+  // /login    - ПУБЛІЧНИЙ ОБМЕЖЕНИЙ маршрут логіна існуючого користувача з формою
+  // /contacts - ПРИВАТНИЙ маршрут для роботи зі списком контактів користувача
 
-  // Повертаю розмітку:
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />}></Route>
-      </Routes>
+  return isFetching ? (
+    <PreLoader />
+  ) : (
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        {/* <Route path="/register" element={<RegisterPage />} /> */}
+        {/* <Route path="/login" element={<LoginPage />} /> */}
+        {/* <Route path="/contacts" element={<ContactsPage />} /> */}
 
-      {/* <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="movies" element={<Movies />} />
+        {/* <Route
+            index
+            element={<PublicRoute redirectTo="/" component={<HomePage />} />}
+            /> */}
 
-          <Route path="movies/:currentMovie" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
+        <Route index element={<HomePage />} />
 
-          <Route path="*" element={<NotFoundPage />}></Route>
-        </Route>
-      </Routes> */}
-    </>
+        <Route
+          path="/register"
+          element={
+            <PublicRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+              restricted
+            />
+          }
+        />
+
+        <Route
+          path="/login"
+          element={
+            <PublicRoute
+              redirectTo="/contacts"
+              component={<LoginPage />}
+              restricted
+            />
+          }
+        />
+
+        <Route
+          path="/contacts"
+          element={
+            // ^ Варіант 1
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+
+            // ^ Варіант 2
+            // <PrivateRoute component={<ContactsPage />} />
+
+            // ^ Варіант 3
+            // <PrivateRoute>
+            //   <ContactsPage />
+            // </PrivateRoute>
+          }
+        />
+      </Route>
+      <Route path="*" element={<NotFoundPage />}></Route>
+    </Routes>
   );
 };
 

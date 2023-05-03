@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchLogIn } from 'redux/auth/fetchAuth';
+// import { selectIsLoggedIn } from 'redux/auth/selectors';
 import css from './LoginForm.module.css';
 
 export const LoginForm = () => {
@@ -48,6 +49,10 @@ export const LoginForm = () => {
       <label className={css.label}>
         Email
         <input
+          className="form-control me-2"
+          // type="search"
+          placeholder="Search"
+          aria-label="Search"
           type="email"
           name="email"
           onChange={getInput}
@@ -57,13 +62,19 @@ export const LoginForm = () => {
       <label className={css.label}>
         Password
         <input
+          className="form-control me-2"
+          // type="search"
+          placeholder="Search"
+          aria-label="Search"
           type="password"
           name="password"
           onChange={getInput}
           value={userPassword}
         />
       </label>
-      <button type="submit">Log In</button>
+      <button type="submit" className="btn btn-outline-primary">
+        Log In
+      </button>
     </form>
   );
 };

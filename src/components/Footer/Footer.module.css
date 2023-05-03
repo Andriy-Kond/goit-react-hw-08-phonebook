@@ -1,0 +1,9 @@
+.footerStyle {
+  margin-top: 40px;
+}
+
+.linkContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

@@ -2,9 +2,12 @@ const styles = {
   container: {
     minHeight: 'calc(100vh - 50px)',
     display: 'flex',
-    justifyContent: 'spaceBetween',
+
     flexDirection: 'column',
-    margin: '20px',
+    padding: '20px',
+    paddingTop: '0px',
+
+    justifyContent: 'space-between',
   },
 
   title: {

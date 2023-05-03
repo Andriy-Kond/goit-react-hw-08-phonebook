@@ -14,7 +14,8 @@ const FULFILLED = 'fulfilled';
 const initialState = {
   user: { name: null, email: null },
   token: null,
-  isLoggedIn: false,
+  // isLoggedIn: false,
+  isRefreshing: false,
   isLoading: false,
   error: null,
 };
@@ -30,7 +31,7 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-// & register і login:
+// & register та login:
 const authHandleFulfilled = (state, action) => {
   // state.isLoading = false;
   // state.error = null;
@@ -38,20 +39,27 @@ const authHandleFulfilled = (state, action) => {
 
   state.user = action.payload.user;
   state.token = action.payload.token;
-  state.isLoggedIn = true; // якщо успішна реєстрація
+  // state.isLoggedIn = true; // якщо успішна реєстрація
 };
 
 // & logout
 const logOutHandleFulfilled = state => {
   state.user = { name: null, email: null };
   state.token = null;
-  state.isLoggedIn = false;
+  // state.isLoggedIn = false;
 };
 
 // & Оновлення сторінки
+const refreshHandlePending = (state, action) => {
+  state.isRefreshing = true;
+};
 const refreshHandleFulfilled = (state, action) => {
   state.user = action.payload;
-  state.isLoggedIn = true;
+  state.isRefreshing = false;
+  // state.isLoggedIn = true;
+};
+const refreshHandleRejected = (state, action) => {
+  state.isRefreshing = false;
 };
 
 // & Додаткове скорочення коду у всіх fulFilled:
@@ -63,7 +71,7 @@ const handleFulfilled = state => {
 
 // Оптимізація для скорочення назви у масиві функції isAnyOf([], callback)
 // Створюємо масив з імен і додаємо до кожного якийсь статус, в залежності від ситуації
-const namesArr = [fetchRegister, fetchLogIn, fetchLogOut, fetchCurrentUser];
+const namesArr = [fetchRegister, fetchLogIn, fetchLogOut];
 const addStatusToName = status => namesArr.map(name => name[status]);
 
 const sliceAuth = createSlice({
@@ -77,7 +85,9 @@ const sliceAuth = createSlice({
       .addCase(fetchRegister.fulfilled, authHandleFulfilled)
       .addCase(fetchLogIn.fulfilled, authHandleFulfilled)
       .addCase(fetchLogOut.fulfilled, logOutHandleFulfilled)
+      .addCase(fetchCurrentUser.pending, refreshHandlePending)
       .addCase(fetchCurrentUser.fulfilled, refreshHandleFulfilled)
+      .addCase(fetchCurrentUser.rejected, refreshHandleRejected)
       .addMatcher(isAnyOf(...addStatusToName(PENDING)), handlePending)
       .addMatcher(isAnyOf(...addStatusToName(REJECTED)), handleRejected)
       // Ще одне поращення для скорочення коду:

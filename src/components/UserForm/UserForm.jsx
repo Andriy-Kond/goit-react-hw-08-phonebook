@@ -59,8 +59,13 @@ export const UserForm = () => {
           <label className={css.formLabel} htmlFor="UserId">
             Name
           </label>
+
           <input
-            className={css.formInput}
+            className="form-control me-2"
+            // type="search"
+            placeholder="Input name here"
+            aria-label="Search"
+            // className={css.formInput}
             id="UserId"
             type="text"
             name="name"
@@ -77,7 +82,11 @@ export const UserForm = () => {
             Phone Number
           </label>
           <input
-            className={css.formInput}
+            className="form-control me-2"
+            // type="search"
+            placeholder="Input phone number here"
+            aria-label="Search"
+            // className={css.formInput}
             id="number"
             onChange={getInput}
             value={userNumber}
@@ -89,7 +98,7 @@ export const UserForm = () => {
           />
         </div>
 
-        <button className={css.submitBtn} type="submit">
+        <button className="btn btn-outline-primary" type="submit">
           Add contact
         </button>
       </div>

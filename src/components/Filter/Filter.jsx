@@ -16,10 +16,15 @@ export const Filter = () => {
 
   return (
     <div className={css.inputWrapper}>
-      <label htmlFor="searchInput">Find contacts by name</label>
+      <label htmlFor="searchInput">Search contacts by name here</label>
+
       <input
+        className="form-control me-2"
+        // type="text"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
         id="searchInput"
-        type="text"
         name="filter"
         onChange={getInput}
         value={filter}

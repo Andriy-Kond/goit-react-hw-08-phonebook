@@ -1,5 +1,5 @@
 // ^ З використанням localStorage:
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 // імпорт при default-експорті дозволяє називати змінну як завгодно:
 import sliceFilterReducer from './phonebook/sliceFilter';
 import sliceContactsReducer from './phonebook/sliceContacts';
