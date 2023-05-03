@@ -1,7 +1,7 @@
 import defaultAvatar from '../images/noUser.jpg';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUserName, selectUserToken } from '../redux/auth/selectors';
+import { selectUserName, selectUserToken } from '../../redux/auth/selectors';
 import { fetchLogOut } from 'redux/auth/fetchAuth';
 
 export const UserMenu = () => {

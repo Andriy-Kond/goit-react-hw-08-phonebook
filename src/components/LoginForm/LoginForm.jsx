@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
+
 import { fetchLogIn } from 'redux/auth/fetchAuth';
 // import { selectIsLoggedIn } from 'redux/auth/selectors';
 import css from './LoginForm.module.css';
 
 export const LoginForm = () => {
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
   // const isLogged = useSelector(selectIsLoggedIn);
 
@@ -31,8 +34,6 @@ export const LoginForm = () => {
       fetchLogIn({
         email: userEmail,
         password: userPassword,
-        // email: form.elements.email.value,
-        // password: form.elements.password.value,
       })
     );
 
@@ -40,7 +41,7 @@ export const LoginForm = () => {
     if (!isLogged.error) {
       setUserEmail('');
       setUserPassword('');
-      // form.reset();
+      // navigate('/profile', { replace: true });
     }
   };
 

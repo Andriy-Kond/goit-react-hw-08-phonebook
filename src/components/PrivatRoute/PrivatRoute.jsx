@@ -15,7 +15,10 @@ export default function PrivateRoute({ component, redirectTo = '/' }) {
   // console.log('isLogged || isToken :>> ', isLogged || isToken);
 
   // return isLogged || isToken ? component : <Navigate to={redirectTo} />;
-  return isToken ? component : <Navigate to={redirectTo} />;
+  return isToken ? component : <Navigate to={redirectTo} replace />;
+
+  // replace заміщає останню сторінку у стеці історії (щоб користувач не зміг повернутися кнопкою «назад» на сторінку логіна після входу.
+
   // return isLogged ? props.component : <Navigate to={props.redirectTo} />;
 }
 

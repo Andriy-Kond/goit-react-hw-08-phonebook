@@ -6,8 +6,8 @@ import { fetchCurrentUser } from 'redux/auth/fetchAuth';
 
 import HomePage from 'pages/Home/HomePage';
 import SharedLayout from './SharedLayout/SharedLayout';
-import PrivateRoute from './PrivatRoute';
-import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivatRoute/PrivatRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 import { selectIsRefreshing } from 'redux/auth/selectors';
 import { PreLoader } from './Preloader/PreLoader';
 

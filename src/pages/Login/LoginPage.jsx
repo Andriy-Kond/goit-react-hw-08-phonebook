@@ -9,7 +9,6 @@ const Login = () => {
 
 export default Login;
 
-// // src/pages/Login.jsx;
 // import { useNavigate } from 'react-router-dom';
 
 // export const Login = () => {

@@ -1,7 +1,7 @@
-import { Navigation } from './Navigation';
-import { AuthNav } from './AuthNav';
+import { Navigation } from '../Navigation/Navigation';
+import { AuthNav } from '../AuthNav/AuthNav';
 
-import { UserMenu } from './UserMenu';
+import { UserMenu } from '../UserMenu/UserMenu';
 
 import { useSelector } from 'react-redux';
 import { selectIsToken } from 'redux/auth/selectors';
