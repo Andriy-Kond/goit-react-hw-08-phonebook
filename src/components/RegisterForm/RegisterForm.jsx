@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchRegister } from 'redux/auth/fetchAuth';
@@ -26,7 +28,9 @@ export const RegisterForm = () => {
     // const form = e.currentTarget;
 
     if (!userName || !userEmail || !userPassword) {
-      alert(`Всі поля мають бути заповнені`);
+      // alert(`Всі поля мають бути заповнені`);
+      Notiflix.Notify.failure(`Всі поля мають бути заповнені`);
+      return;
     }
 
     const isLogged = dispatch(
@@ -34,19 +38,31 @@ export const RegisterForm = () => {
         name: userName,
         email: userEmail,
         password: userPassword,
-        //     name: form.elements.name.value,
-        //     email: form.elements.email.value,
-        //     password: form.elements.password.value,
       })
-    );
+    )
+      .unwrap()
+      .then(promise => {
+        // Можна і не чистити поля, бо все одно переходимо на іншу сторінку:
+        //   setUserName('');
+        //   setUserEmail('');
+        //   setUserPassword('');
+        console.log('handleSubmit >> promise:', promise);
+        Notiflix.Notify.success(
+          `Користувач ${userName} успішно зареєстрований`
+        );
+      })
+      .catch(error => {
+        Notiflix.Notify.failure(
+          `Помилка: ${error}. Можливо такий користувач вже існує.`
+        );
+      });
 
     // Якщо помилки не було, то значить новий користувач створений і можна очистити поля
-    if (!isLogged.error) {
-      setUserName('');
-      setUserEmail('');
-      setUserPassword('');
-      // form.reset();
-    }
+    // if (!isLogged.error) {
+    //   setUserName('');
+    //   setUserEmail('');
+    //   setUserPassword('');
+    // }
   };
 
   return (

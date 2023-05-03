@@ -14,6 +14,20 @@ import storeRedux, { persister } from './redux/indexStore';
 import { PreLoader } from 'components/Preloader/PreLoader';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import Notiflix from 'notiflix';
+Notiflix.Notify.init({
+  position: 'right-top',
+  opacity: 1,
+  timeout: 4000,
+  clickToClose: true,
+  fontSize: '20px',
+});
+// Варіанти повідомлень Notiflix:
+// Notiflix.Notify.success(`Fulfilled promise ${position} in ${delay}ms`);
+// Notiflix.Notify.warning('Please choose a date in the future');
+// Notiflix.Notify.failure(`Oops, there is no country with that name`);
+// Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+
 // Дістати зі стору будь-яке значення - хук useSelector
 // Для виконання якоїсь дії стору - хук useDispatch
 

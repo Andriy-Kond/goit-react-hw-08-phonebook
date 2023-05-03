@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
@@ -27,22 +29,32 @@ export const LoginForm = () => {
     e.preventDefault();
     // const form = e.currentTarget;
     if (!userEmail || !userPassword) {
-      alert(`Всі поля мають бути заповнені`);
+      // alert(`Всі поля мають бути заповнені`);
+      Notiflix.Notify.failure(`Всі поля мають бути заповнені`);
+      return;
     }
 
-    const isLogged = dispatch(
+    // const isLogged =
+    dispatch(
       fetchLogIn({
         email: userEmail,
         password: userPassword,
       })
-    );
-
-    // Якщо помилки не було, то значить увійшов і можна очистити поля
-    if (!isLogged.error) {
-      setUserEmail('');
-      setUserPassword('');
-      // navigate('/profile', { replace: true });
-    }
+    )
+      .unwrap()
+      .then(promise => {
+        console.log('handleSubmit >> promise:', promise);
+        Notiflix.Notify.success(`Вхід успішний, доступ наданий`);
+        // Можна і не чистити поля, бо все одно переходимо на іншу сторінку:
+        // setUserEmail('');
+        // setUserPassword('');
+        //   // navigate('/profile', { replace: true });
+      })
+      .catch(error => {
+        Notiflix.Notify.failure(
+          `Помилка: ${error}. Можливо не правильний логін чи пароль.`
+        );
+      });
   };
 
   return (

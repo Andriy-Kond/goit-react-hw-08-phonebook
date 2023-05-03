@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import css from './UserForm.module.css';
 import { useState } from 'react';
 
@@ -36,7 +37,9 @@ export const UserForm = () => {
 
     if (isExist) {
       // alert працює як return
-      alert(`${userName} is already in contacts`);
+      // alert(`${userName} is already in contacts`);
+      Notiflix.Notify.info(`User "${userName}" is already in contacts`);
+      return;
     } else {
       // спроба створити об'єкт:
       const isCreated = dispatch(

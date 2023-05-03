@@ -1,4 +1,4 @@
-import defaultAvatar from '../images/noUser.jpg';
+import defaultAvatar from '../../images/noUser.jpg';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUserName, selectUserToken } from '../../redux/auth/selectors';
