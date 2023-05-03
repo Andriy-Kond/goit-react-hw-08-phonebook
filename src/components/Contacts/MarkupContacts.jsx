@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import PropTypes from 'prop-types';
 import css from './Contacts.module.css';
 
@@ -9,7 +10,14 @@ export function MarkupContacts({ name, number, id }) {
   const dispatch = useDispatch();
 
   const handleDeleteContact = () => {
-    dispatch(deleteContact(id));
+    dispatch(deleteContact(id))
+      .unwrap()
+      .then(promise => {
+        Notiflix.Notify.success(`Contact "${promise.name}" has been deleted`);
+      })
+      .catch(error => {
+        Notiflix.Notify.failure(`Some error: "${error}"`);
+      });
   };
 
   return (

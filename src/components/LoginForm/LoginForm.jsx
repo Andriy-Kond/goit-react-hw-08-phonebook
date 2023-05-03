@@ -43,8 +43,8 @@ export const LoginForm = () => {
     )
       .unwrap()
       .then(promise => {
-        console.log('handleSubmit >> promise:', promise);
-        Notiflix.Notify.success(`Вхід успішний, доступ наданий`);
+        console.log('handleSubmit >> promise:', promise.user.name);
+        Notiflix.Notify.success(`Ласкаво просимо, ${promise.user.name}.`);
         // Можна і не чистити поля, бо все одно переходимо на іншу сторінку:
         // setUserEmail('');
         // setUserPassword('');

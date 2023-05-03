@@ -18,9 +18,9 @@ import Notiflix from 'notiflix';
 Notiflix.Notify.init({
   position: 'right-top',
   opacity: 1,
-  timeout: 4000,
+  timeout: 3000,
   clickToClose: true,
-  fontSize: '20px',
+  fontSize: '18px',
 });
 // Варіанти повідомлень Notiflix:
 // Notiflix.Notify.success(`Fulfilled promise ${position} in ${delay}ms`);

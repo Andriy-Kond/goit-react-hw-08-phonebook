@@ -38,7 +38,7 @@ export const UserForm = () => {
     if (isExist) {
       // alert працює як return
       // alert(`${userName} is already in contacts`);
-      Notiflix.Notify.info(`User "${userName}" is already in contacts`);
+      Notiflix.Notify.warning(`User "${userName}" is already in contacts`);
       return;
     } else {
       // спроба створити об'єкт:
@@ -48,6 +48,7 @@ export const UserForm = () => {
 
       // Якщо новий об'єкт створений успішно, то обнуляємо поля інпутів у формі
       if (isCreated) {
+        Notiflix.Notify.success(`Contact "${userName}" added successfully!`);
         setUserName('');
         setUserNumber('');
       }
