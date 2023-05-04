@@ -1,6 +1,4 @@
 import css from './Contacts.module.css';
-
-// ^ Рефакторінг у Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { MarkupContacts } from './MarkupContacts';
 import {

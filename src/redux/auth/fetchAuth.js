@@ -17,7 +17,7 @@ const tokenFn = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
-//  Якщо те сам писати на fetch, то було б щось таке на КОЖНИЙ запит:
+//  Якщо те писати на fetch, то було б щось таке на КОЖНИЙ запит:
 // fetch('url', {
 //   method: 'POST',
 //   header: {
@@ -28,7 +28,7 @@ const tokenFn = {
 export const fetchRegister = createAsyncThunk(
   'auth/register',
   async (credentials, { rejectWithValue }) => {
-    // credentials - об'єкт з властивосями:
+    // credentials - об'єкт з властивостями:
     // {
     //   "name": "string",
     //   "email": "string",
@@ -49,6 +49,7 @@ export const fetchRegister = createAsyncThunk(
       //   token: "string"
       // }
 
+      // ^ два варіанти - через функцію tokenFn і напряму:
       tokenFn.set(response.data.token); // сетимо токен, далі axios буде його використовувати самостійно
       // axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
 
@@ -72,6 +73,7 @@ export const fetchLogIn = createAsyncThunk(
       const response = await axios.post('/users/login', credentials);
       // Після запиту бекенд формує pending/fulfilled/rejected
 
+      // ^ два варіанти - через функцію tokenFn і напряму:
       tokenFn.set(response.data.token);
       // axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
 
@@ -95,6 +97,7 @@ export const fetchLogOut = createAsyncThunk(
       const response = await axios.post('/users/logout', token);
       // Після запиту бекенд формує pending/fulfilled/rejected
 
+      // ^ два варіанти - через функцію tokenFn і напряму:
       // axios.defaults.headers.common.Authorization = '';
       tokenFn.unset();
 

@@ -15,7 +15,7 @@
 }
 
 /* Для варіанту з RTK Query  */
-.deleteBtn {
+/* .deleteBtn {
   background-color: transparent;
   border: 1px solid grey;
   border-radius: 3px;
@@ -25,4 +25,4 @@
 
 .deleteBtn:hover {
   background-color: rgb(229, 226, 226);
-}
+} */

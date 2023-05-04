@@ -1,22 +1,13 @@
+import css from './Navigation.module.css';
 import { selectIsToken } from 'redux/auth/selectors';
 import { useSelector } from 'react-redux';
-
 import { StyledNavLink } from 'components/StyledNavLink';
-import css from './Navigation.module.css';
 
 export const Navigation = () => {
   const isToken = useSelector(selectIsToken);
 
   return (
-    <div
-      className={css.navigationContainer}
-      // style={{
-      //   display: 'flex',
-
-      //   alignItems: 'center',
-      //   gap: '10px',
-      // }}
-    >
+    <div className={css.navigationContainer}>
       <StyledNavLink to="/">Home</StyledNavLink>
       {isToken && <StyledNavLink to="/contacts">Contacts</StyledNavLink>}
     </div>

@@ -1,5 +1,5 @@
 import css from './ContactsPage.module.css';
-import { PreLoader } from 'components/Preloader/PreLoader';
+import { SmallPreLoader } from 'components/Preloader/PreLoader';
 import { useSelector } from 'react-redux';
 import {
   selectError,
@@ -31,7 +31,7 @@ const ContactsPage = () => {
             <div className={css.preloader}>
               {isLoading && !error && (
                 <>
-                  <PreLoader /> <PreLoader /> <PreLoader />
+                  <SmallPreLoader /> <SmallPreLoader /> <SmallPreLoader />
                 </>
               )}
             </div>

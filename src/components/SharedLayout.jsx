@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 
 import { Container } from './Container/Container';
 import { Header } from './Header/Header';
-import { PreLoader } from './Preloader/PreLoader'; // коли іменований export
+import { BigPreLoader } from './Preloader/PreLoader'; // коли іменований export
 import Footer from './Footer/Footer'; // коли export default
 
 const Layout = () => {
@@ -11,7 +11,7 @@ const Layout = () => {
     <Container>
       <main>
         <Header />
-        <Suspense fallback={<PreLoader />}>
+        <Suspense fallback={<BigPreLoader />}>
           <Outlet />
         </Suspense>
       </main>

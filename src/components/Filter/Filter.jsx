@@ -1,6 +1,4 @@
 import css from './Filter.module.css';
-
-// ^ Рефакторінг у Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { filterInStateContacts } from 'redux/phonebook/sliceFilter';
 import { selectFilter } from 'redux/phonebook/selectorsPhonebook';
@@ -20,7 +18,6 @@ export const Filter = () => {
 
       <input
         className="form-control me-2"
-        // type="text"
         type="search"
         placeholder="Search"
         aria-label="Search"

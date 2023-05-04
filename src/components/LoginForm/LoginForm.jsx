@@ -1,17 +1,15 @@
 import css from './LoginForm.module.css';
 import Notiflix from 'notiflix';
-
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
-
 import { fetchLogIn } from 'redux/auth/fetchAuth';
+// import { useNavigate } from 'react-router-dom';
 // import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 export const LoginForm = () => {
   // const navigate = useNavigate();
-  const dispatch = useDispatch();
   // const isLogged = useSelector(selectIsLoggedIn);
+  const dispatch = useDispatch();
 
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -27,14 +25,12 @@ export const LoginForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    // const form = e.currentTarget;
     if (!userEmail || !userPassword) {
       // alert(`Всі поля мають бути заповнені`);
       Notiflix.Notify.failure(`Всі поля мають бути заповнені`);
       return;
     }
 
-    // const isLogged =
     dispatch(
       fetchLogIn({
         email: userEmail,
@@ -62,7 +58,6 @@ export const LoginForm = () => {
         Email
         <input
           className="form-control me-2"
-          // type="search"
           placeholder="Enter your email here"
           aria-label="email"
           type="email"
@@ -75,7 +70,6 @@ export const LoginForm = () => {
         Password
         <input
           className="form-control me-2"
-          // type="search"
           placeholder="Enter your password here"
           aria-label="password"
           type="password"

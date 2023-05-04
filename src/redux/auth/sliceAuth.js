@@ -14,13 +14,13 @@ const FULFILLED = 'fulfilled';
 const initialState = {
   user: { name: null, email: null },
   token: null,
-  // isLoggedIn: false,
+  // isLoggedIn: false, // замість нього використовую властивість token
   isRefreshing: false,
   isLoading: false,
   error: null,
 };
 
-// * Для скорочення коду extraReducers:
+// * Для скорочення коду в extraReducers:
 // & Однакові загальні методи для всіх pending і всіх rejected
 const handlePending = state => {
   state.isLoading = true;
@@ -33,8 +33,8 @@ const handleRejected = (state, action) => {
 
 // & register та login:
 const authHandleFulfilled = (state, action) => {
-  // state.isLoading = false;
-  // state.error = null;
+  // state.isLoading = false; // переніс у handleFulfilled
+  // state.error = null; // переніс у handleFulfilled
   // handleFulfilled(state) - можна викликати тут, а можна після всіх addMatcher в окремому addMatcher
 
   state.user = action.payload.user;
@@ -67,7 +67,7 @@ const handleFulfilled = state => {
   state.isLoading = false;
   state.error = null;
 };
-// * /Для скорочення коду extraReducers
+// * /Для скорочення коду в extraReducers
 
 // Оптимізація для скорочення назви у масиві функції isAnyOf([], callback)
 // Створюємо масив з імен і додаємо до кожного якийсь статус, в залежності від ситуації
@@ -75,7 +75,7 @@ const namesArr = [fetchRegister, fetchLogIn, fetchLogOut];
 const addStatusToName = status => namesArr.map(name => name[status]);
 
 const sliceAuth = createSlice({
-  // ~ Ніякої логіки перевірки тут не мє бути! Лише отримати дані і засетити їх!
+  // ! Ніякої логіки перевірки тут не мє бути! Лише отримати дані і засетити їх!
 
   name: 'auth',
   initialState,
@@ -85,12 +85,14 @@ const sliceAuth = createSlice({
       .addCase(fetchRegister.fulfilled, authHandleFulfilled)
       .addCase(fetchLogIn.fulfilled, authHandleFulfilled)
       .addCase(fetchLogOut.fulfilled, logOutHandleFulfilled)
+
       .addCase(fetchCurrentUser.pending, refreshHandlePending)
       .addCase(fetchCurrentUser.fulfilled, refreshHandleFulfilled)
       .addCase(fetchCurrentUser.rejected, refreshHandleRejected)
+
       .addMatcher(isAnyOf(...addStatusToName(PENDING)), handlePending)
       .addMatcher(isAnyOf(...addStatusToName(REJECTED)), handleRejected)
-      // Ще одне поращення для скорочення коду:
+      // Ще одне покращення для скорочення коду:
       .addMatcher(isAnyOf(...addStatusToName(FULFILLED)), handleFulfilled);
   },
 });

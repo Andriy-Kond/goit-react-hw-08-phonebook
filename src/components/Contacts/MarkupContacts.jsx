@@ -1,8 +1,6 @@
 import Notiflix from 'notiflix';
 import PropTypes from 'prop-types';
 import css from './Contacts.module.css';
-
-// ^ Рефакторінг у Redux
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/phonebook/fetchContacts';
 

@@ -12,14 +12,7 @@ export const UserMenu = () => {
 
   return (
     <>
-      <div
-        className={css.userMenuContainer}
-        // style={{
-        //   display: 'flex',
-        //   alignItems: 'center',
-        //   gap: '10px',
-        // }}
-      >
+      <div className={css.userMenuContainer}>
         <img src={defaultAvatar} alt="default avatar" width="32" />
         <p>Welcome, {name}</p>
         <button

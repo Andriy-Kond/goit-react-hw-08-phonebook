@@ -9,7 +9,7 @@ import SharedLayout from './SharedLayout';
 import PrivateRoute from './PrivatRoute/PrivatRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 import { selectIsRefreshing } from 'redux/auth/selectors';
-import { PreLoader } from './Preloader/PreLoader';
+import { BigPreLoader } from './Preloader/PreLoader';
 
 const NotFoundPage = lazy(() => import('./NotFoundPage/NotFoundPage'));
 const RegisterPage = lazy(() => import('pages/Register/RegisterPage'));
@@ -33,7 +33,7 @@ export const App = () => {
   // /contacts - ПРИВАТНИЙ маршрут для роботи зі списком контактів користувача
 
   return isFetching ? (
-    <PreLoader />
+    <BigPreLoader />
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
@@ -96,7 +96,7 @@ export const App = () => {
 // import { Contacts } from './Contacts/Contacts';
 // import { Filter } from './Filter/Filter';
 // import css from './App.module.css';
-// import { PreLoader } from './Preloader/PreLoader';
+// import { BigPreLoader } from './Preloader/PreLoader';
 
 // // ^ Рефакторінг у RTK Query
 // import { useGetContactsQuery } from 'store/contactsRTKQueryApi';
@@ -115,7 +115,7 @@ export const App = () => {
 //       <h2>Contacts</h2>
 //       <Filter />
 //       <div style={{ height: '40px', display: 'flex', alignItems: 'center' }}>
-//         {isLoading && !error && <PreLoader />}
+//         {isLoading && !error && <BigPreLoader />}
 //       </div>
 
 //       <Contacts />

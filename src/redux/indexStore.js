@@ -1,5 +1,6 @@
 // ^ З використанням localStorage:
 import { configureStore } from '@reduxjs/toolkit';
+
 // імпорт при default-експорті дозволяє називати змінну як завгодно:
 import sliceFilterReducer from './phonebook/sliceFilter';
 import sliceContactsReducer from './phonebook/sliceContacts';
@@ -16,9 +17,11 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+
 // Додатковий імпорт згідно документації для роботи з localStorage:
 import storage from 'redux-persist/lib/storage';
 
+// * Для роботи з бекендом вже немає необхідності юзати локалсторидж для контактів:
 // // Об'являю спеціальне Redux-Persist сховище (спеціальний localStorage):
 // const contactsPersistConfig = {
 //   key: 'root', // ключ, необхідний для того, щоб можна було створювати декілька таких сховищ (вкладених???)
