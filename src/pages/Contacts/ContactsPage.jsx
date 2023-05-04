@@ -23,28 +23,28 @@ const ContactsPage = () => {
           <h2>Phonebook</h2>
           <UserForm />
         </div>
-        {contactsList.length > 0 && (
-          <div>
-            <div className={css.contactsItem}>
-              <h2>Contacts</h2>
-              <Filter />
-            </div>
-            <div className={css.contactsItem}>
-              <div className={css.contactsPreloader}>
-                <p>List of contacts</p>
-                <div className={css.preloader}>
-                  {isLoading && !error && (
-                    <>
-                      <SmallPreLoader /> <SmallPreLoader /> <SmallPreLoader />
-                    </>
-                  )}
-                </div>
-              </div>
-              <Contacts />
-              {error && <h2>Error: {error}</h2>}
+        {/* {contactsList.length > 0 && (
+          <div> */}
+        <div className={css.contactsItem}>
+          <h2>Contacts</h2>
+          <Filter />
+        </div>
+        <div className={css.contactsItem}>
+          <div className={css.contactsPreloader}>
+            <p>List of contacts</p>
+            <div className={css.preloader}>
+              {isLoading && !error && (
+                <>
+                  <SmallPreLoader /> <SmallPreLoader /> <SmallPreLoader />
+                </>
+              )}
             </div>
           </div>
-        )}
+          <Contacts />
+          {error && <h2>Error: {error}</h2>}
+        </div>
+        {/* </div>
+        )} */}
       </div>
     </>
   );
