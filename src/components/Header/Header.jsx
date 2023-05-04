@@ -3,12 +3,12 @@ import css from './Header.module.css';
 // import { AuthNav } from '../AuthNav/AuthNav';
 import { UserMenu } from '../UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
-import { selectIsToken } from 'redux/auth/selectors';
+import { selectUserToken } from 'redux/auth/selectors';
 import { StyledNavLink } from 'components/StyledNavLink';
 
 export const Header = () => {
   // const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isToken = useSelector(selectIsToken);
+  const isToken = useSelector(selectUserToken);
 
   // ^ Без окремих компонентів <Navigation> та <AuthNav>
   // Вирішується проблема хедера у мобільному варіанті меню

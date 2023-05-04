@@ -19,6 +19,7 @@ const ContactsPage = () => {
   const contactsList = useSelector(selectContacts);
   console.log('ContactsPage >> contactsList:', contactsList);
 
+  // Для додаткового оновлення контактів, щоб спрацьовував код після contactsList.length > 0 &&
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchContacts());

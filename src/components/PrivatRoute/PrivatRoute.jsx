@@ -1,13 +1,13 @@
 import { Navigate } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import { selectIsToken } from 'redux/auth/selectors';
+import { selectUserToken } from 'redux/auth/selectors';
 
 // Якщо користувач залогінений, або оновлює сторінку, то кидаю на приватний компонент, інакше - на сторінку логіну (/login)
 // ^ Варіант 1
 export default function PrivateRoute({ component, redirectTo = '/' }) {
   // const isLogged = useSelector(selectIsLoggedIn);
-  const isToken = useSelector(selectIsToken);
+  const isToken = useSelector(selectUserToken);
 
   // console.log('PrivateRoute >> props:', props)
   // console.log('PrivateRoute >> isLogged:', isLogged);

@@ -26,7 +26,7 @@ export const App = () => {
   // */ Логіка для обробки токена при перезавантаженні сторінки:
 
   const isFetching = useSelector(selectIsRefreshing);
-  // const isToken = useSelector(selectIsToken);
+  // const isToken = useSelector(selectUserToken);
   // /         - ПУБЛІЧНИЙ НЕОБМЕЖЕНИЙ маршрут
   // /register - ПУБЛІЧНИЙ ОБМЕЖЕНИЙ маршрут реєстрації нового користувача з формою
   // /login    - ПУБЛІЧНИЙ ОБМЕЖЕНИЙ маршрут логіна існуючого користувача з формою

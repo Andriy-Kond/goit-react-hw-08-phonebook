@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { selectIsToken } from 'redux/auth/selectors';
+import { selectUserToken } from 'redux/auth/selectors';
 
 // Якщо маршрут ОБМЕЖЕНИЙ (restricted) і користувач залогінений, то перекидаю на redirectTo
 // Якщо маршрут НЕ ОБМЕЖЕНИЙ то перекидаю на сторінку home-page незалежно від того чи залогінений користувач, чи ні.
@@ -10,7 +10,7 @@ export default function PublicRoute({
   restricted = false,
 }) {
   // const isLogged = useSelector(selectIsLoggedIn);
-  const isToken = useSelector(selectIsToken);
+  const isToken = useSelector(selectUserToken);
 
   // const shouldDirect = (isLogged || isToken) && restricted;
   const shouldDirect = isToken && restricted;

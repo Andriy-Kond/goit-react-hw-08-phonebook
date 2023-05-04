@@ -94,6 +94,7 @@ export const fetchLogOut = createAsyncThunk(
     // }
     try {
       // Відправляю дані клієнта на бекенд для аутентифікації
+      // Не зрозуміло чи потребен token - працює і без нього, хоча в документації він ніби потрібен
       const response = await axios.post('/users/logout', token);
       // Після запиту бекенд формує pending/fulfilled/rejected
 
@@ -118,8 +119,8 @@ export const fetchCurrentUser = createAsyncThunk(
     //   "password": "string",
     // }
     const state = getState();
-
     const receivedToken = state.storeAuth.token;
+
     if (receivedToken === null) {
       // retrun; - так працювати не буде - у токен буде залітати undefined при розлогіненому юзері. І тоді все падає.
       // Тому виходити з коду треба через відхилення:
@@ -128,9 +129,8 @@ export const fetchCurrentUser = createAsyncThunk(
       );
     }
 
-    tokenFn.set(receivedToken);
-
     try {
+      tokenFn.set(receivedToken);
       const response = await axios.get('/users/current');
       return response.data;
     } catch (error) {
