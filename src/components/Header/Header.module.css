@@ -3,15 +3,29 @@
 }
 
 .ulContainer {
-  /* justify-content: space-between; */
+  /* display: flex;
+  justify-content: flex-start; */
   width: 100%;
   gap: 5px;
 }
-.css.navLeft {
-  float: left;
+
+.navLeft {
+  /* float: left; */
 }
 
-.css.navRight {
-  clear: both;
-  float: right;
+.navRight {
+  /* clear: both;
+  float: right; */
+  margin-left: auto;
+
+  @media screen and (max-width: 991px) {
+    margin-left: 0;
+  }
 }
+
+/* Breakpoints:
+Small	sm	≥576px
+Medium	md	≥768px
+! Large	lg	≥992px
+Extra large	xl	≥1200px
+Extra extra large	xxl	≥1400px */
