@@ -1,19 +1,19 @@
 import css from './Contacts.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { MarkupContacts } from './MarkupContacts';
 import {
   selectContacts,
   selectFilter,
 } from 'redux/phonebook/selectorsPhonebook';
-import { useEffect } from 'react';
-import { fetchContacts } from 'redux/phonebook/fetchContacts';
+// import { useEffect } from 'react';
+// import { fetchContacts } from 'redux/phonebook/fetchContacts';
 
 export const Contacts = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // Виклик "операції":
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
 
   // Забираю лист контактів зі store Redux:
   // useSelector приймає функцію, яка приймає увесь store з Redux

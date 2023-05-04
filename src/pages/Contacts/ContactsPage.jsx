@@ -20,6 +20,7 @@ const ContactsPage = () => {
   console.log('ContactsPage >> contactsList:', contactsList);
 
   // Для додаткового оновлення контактів, щоб спрацьовував код після contactsList.length > 0 &&
+  // Перенесено з contacts.jsx
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchContacts());
