@@ -1,6 +1,6 @@
 import css from './Header.module.css';
-import { Navigation } from '../Navigation/Navigation';
-import { AuthNav } from '../AuthNav/AuthNav';
+// import { Navigation } from '../Navigation/Navigation';
+// import { AuthNav } from '../AuthNav/AuthNav';
 import { UserMenu } from '../UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { selectIsToken } from 'redux/auth/selectors';
@@ -9,6 +9,9 @@ import { StyledNavLink } from 'components/StyledNavLink';
 export const Header = () => {
   // const isLoggedIn = useSelector(selectIsLoggedIn);
   const isToken = useSelector(selectIsToken);
+
+  // ^ Без окремих компонентів <Navigation> та <AuthNav>
+  // Вирішується проблема хедера у мобільному варіанті меню
   return (
     <>
       <nav
@@ -67,6 +70,8 @@ export const Header = () => {
     </>
   );
 
+  // ^ З окремими компонентами <Navigation> та <AuthNav>
+  // Виникає проблема хедера у мобільному варіанті меню
   // return (
   //   <>
   //     <nav
