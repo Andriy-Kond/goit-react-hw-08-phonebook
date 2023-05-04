@@ -17,7 +17,7 @@ const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const contactsList = useSelector(selectContacts);
-  console.log('ContactsPage >> contactsList:', contactsList);
+  // console.log('ContactsPage >> contactsList:', contactsList);
 
   // Для додаткового оновлення контактів, щоб спрацьовував код після contactsList.length > 0 &&
   // Перенесено з contacts.jsx
