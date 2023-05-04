@@ -1,26 +1,34 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
+// ^ Варіант з модулем css
+import css from './Container.module.css';
 
-    flexDirection: 'column',
-    padding: '20px',
-    paddingTop: '0px',
+// ^ Варіант з вбудованими стилями
+// const styles = {
+//   container: {
+//     minHeight: 'calc(100vh - 50px)',
+//     display: 'flex',
 
-    justifyContent: 'space-between',
-  },
+//     flexDirection: 'column',
+//     padding: '20px',
+//     paddingTop: '0px',
 
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+//     justifyContent: 'space-between',
+//   },
+
+//   title: {
+//     fontWeight: 500,
+//     fontSize: 48,
+//     textAlign: 'center',
+//   },
+// };
 
 export const Container = ({ children }) => {
   return (
     <>
-      <div style={styles.container}>{children}</div>
+      {/* // ^ Варіант з модулем css */}
+      <div className={css.container}>{children}</div>
+
+      {/* // ^ Варіант з вбудованими стилями */}
+      {/* <div styles={styles.container}>{children}</div> */}
     </>
   );
 };

@@ -1,7 +1,8 @@
-/* .preloaderContainer {
+.preloaderContainer {
   display: flex;
-  height: 30px;
+  /* height: 30px;
   width: 100px;
   padding: 50px;
-  margin: 50px;
-} */
+  margin: 50px; */
+  gap: 5px;
+}

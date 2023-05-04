@@ -2,7 +2,7 @@ import css from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <div className={css.footerStyle}>
+    <div className={css.footerContainer}>
       <div className="card">
         <div className="card-header">But the way...</div>
         <div className="card-body">
@@ -10,7 +10,7 @@ const Footer = () => {
           <div className={css.linkContainer}>
             <p className="card-text">Do you want to know more?</p>
             <a
-              className="btn btn-primary"
+              className="btn btn-outline-primary"
               href="https://minusrus.com/"
               target="_blank"
               rel="noopener noreferrer nofollow"

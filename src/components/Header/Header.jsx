@@ -1,3 +1,4 @@
+import css from './Header.module.css';
 import { Navigation } from '../Navigation/Navigation';
 import { AuthNav } from '../AuthNav/AuthNav';
 
@@ -29,7 +30,7 @@ export const Header = () => {
       </nav> */}
 
       <nav
-        className="navbar navbar-expand-lg bg-body-tertiary"
+        className={`navbar navbar-expand-lg bg-body-tertiary ${css.navContainer}`}
         style={{
           // display: 'flex',
           // justifyContent: 'space-between',
@@ -59,7 +60,7 @@ export const Header = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul
-              className="navbar-nav me-auto mb-2 mb-lg-0"
+              className={`navbar-nav me-auto mb-2 mb-lg-0 ${css.ulContainer}`}
               style={{
                 // display: 'flex',
                 justifyContent: 'space-between',

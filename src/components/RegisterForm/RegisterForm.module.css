@@ -1,5 +1,7 @@
 .form {
-  width: 320px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .label {

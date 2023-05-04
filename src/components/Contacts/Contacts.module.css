@@ -14,6 +14,7 @@
   align-items: center;
 }
 
+/* Для варіанту з RTK Query  */
 .deleteBtn {
   background-color: transparent;
   border: 1px solid grey;

@@ -1,9 +1,9 @@
+import css from './RegisterForm.module.css';
 import Notiflix from 'notiflix';
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchRegister } from 'redux/auth/fetchAuth';
-import css from './RegisterForm.module.css';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -47,9 +47,10 @@ export const RegisterForm = () => {
         //   setUserName('');
         //   setUserEmail('');
         //   setUserPassword('');
-        console.log('handleSubmit >> promise:', promise);
+
+        // console.log('handleSubmit >> promise:', promise);
         Notiflix.Notify.success(
-          `Користувач ${userName} успішно зареєстрований`
+          `Користувач ${promise.user.name} успішно зареєстрований`
         );
       })
       .catch(error => {
@@ -73,8 +74,8 @@ export const RegisterForm = () => {
         <input
           className="form-control me-2"
           // type="search"
-          placeholder="Search"
-          aria-label="Search"
+          placeholder="Enter your name here"
+          aria-label="Name"
           type="text"
           name="name"
           onChange={getInput}
@@ -86,8 +87,8 @@ export const RegisterForm = () => {
         <input
           className="form-control me-2"
           // type="search"
-          placeholder="Search"
-          aria-label="Search"
+          placeholder="Enter your email here"
+          aria-label="email"
           type="email"
           name="email"
           onChange={getInput}
@@ -99,8 +100,8 @@ export const RegisterForm = () => {
         <input
           className="form-control me-2"
           // type="search"
-          placeholder="Search"
-          aria-label="Search"
+          placeholder="Enter your password here"
+          aria-label="password"
           type="password"
           name="password"
           onChange={getInput}

@@ -1,0 +1,8 @@
+.navContainer {
+  font-size: '24px';
+}
+
+.ulContainer {
+  justify-content: 'space-between';
+  width: '100%';
+}

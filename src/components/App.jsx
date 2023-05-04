@@ -5,7 +5,7 @@ import { fetchCurrentUser } from 'redux/auth/fetchAuth';
 // import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 import HomePage from 'pages/Home/HomePage';
-import SharedLayout from './SharedLayout/SharedLayout';
+import SharedLayout from './SharedLayout';
 import PrivateRoute from './PrivatRoute/PrivatRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 import { selectIsRefreshing } from 'redux/auth/selectors';
@@ -85,8 +85,8 @@ export const App = () => {
             // </PrivateRoute>
           }
         />
+        <Route path="*" element={<NotFoundPage />}></Route>
       </Route>
-      <Route path="*" element={<NotFoundPage />}></Route>
     </Routes>
   );
 };

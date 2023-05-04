@@ -1,15 +1,9 @@
-const styles = {
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import css from './Home.module.css';
 
 const Home = () => {
   return (
     <div>
-      <h1 style={styles.title}>
+      <h1 style={css.title}>
         Task manager welcome page{' '}
         <span role="img" aria-label="Greeting icon">
           💁‍♀️

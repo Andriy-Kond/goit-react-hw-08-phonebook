@@ -1,5 +1,5 @@
-import Notiflix from 'notiflix';
 import css from './UserForm.module.css';
+import Notiflix from 'notiflix';
 import { useState } from 'react';
 
 // ^ Рефакторінг у Redux
@@ -57,55 +57,53 @@ export const UserForm = () => {
 
   // Повертаю розмітку:
   return (
-    <form className={css.addUserForm} onSubmit={setContact}>
-      <div className={css.userFormWrapper}>
-        <div className={css.inputWrapper}>
-          <label className={css.formLabel} htmlFor="UserId">
-            Name
-          </label>
+    <form className={css.userFormWrapper} onSubmit={setContact}>
+      <div className={css.inputWrapper}>
+        <label className={css.formLabel} htmlFor="UserName">
+          Name
+        </label>
 
-          <input
-            className="form-control me-2"
-            // type="search"
-            placeholder="Input name here"
-            aria-label="Search"
-            // className={css.formInput}
-            id="UserId"
-            type="text"
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            onChange={getInput}
-            value={userName}
-          />
-        </div>
-
-        <div className={css.inputWrapper}>
-          <label className={css.formLabel} htmlFor="number">
-            Phone Number
-          </label>
-          <input
-            className="form-control me-2"
-            // type="search"
-            placeholder="Input phone number here"
-            aria-label="Search"
-            // className={css.formInput}
-            id="number"
-            onChange={getInput}
-            value={userNumber}
-            type="tel"
-            name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-          />
-        </div>
-
-        <button className="btn btn-outline-primary" type="submit">
-          Add contact
-        </button>
+        <input
+          className="form-control me-2"
+          // type="search"
+          placeholder="Enter contact name here"
+          aria-label="User Name"
+          // className={css.formInput}
+          id="UserId"
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          onChange={getInput}
+          value={userName}
+        />
       </div>
+
+      <div className={css.inputWrapper}>
+        <label className={css.formLabel} htmlFor="UserNumber">
+          Phone Number
+        </label>
+        <input
+          className="form-control me-2"
+          // type="search"
+          placeholder="Enter contact phone number here"
+          aria-label="Phone number"
+          // className={css.formInput}
+          id="number"
+          onChange={getInput}
+          value={userNumber}
+          type="tel"
+          name="number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+        />
+      </div>
+
+      <button className="btn btn-outline-primary" type="submit">
+        Add contact
+      </button>
     </form>
   );
 };

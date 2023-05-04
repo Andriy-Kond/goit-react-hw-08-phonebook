@@ -1,3 +1,4 @@
+import css from './ContactsPage.module.css';
 import { PreLoader } from 'components/Preloader/PreLoader';
 import { useSelector } from 'react-redux';
 import {
@@ -8,7 +9,6 @@ import {
 import { Filter } from 'components/Filter/Filter';
 import { UserForm } from 'components/UserForm/UserForm';
 import { Contacts } from 'components/Contacts/Contacts';
-import css from './ContactsPage.module.css';
 
 const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -27,8 +27,14 @@ const ContactsPage = () => {
         </div>
         <div className={css.contactsItem}>
           <div className={css.contactsPreloader}>
-            <p className={css.contactsPreloader}>List of contacts</p>
-            <div>{isLoading && !error && <PreLoader />}</div>
+            <p>List of contacts</p>
+            <div className={css.preloader}>
+              {isLoading && !error && (
+                <>
+                  <PreLoader /> <PreLoader /> <PreLoader />
+                </>
+              )}
+            </div>
           </div>
           <Contacts />
           {error && <h2>Error: {error}</h2>}

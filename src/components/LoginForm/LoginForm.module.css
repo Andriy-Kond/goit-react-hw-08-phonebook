@@ -1,14 +1,18 @@
 .form {
-  width: 320px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  gap: 5px;
 }
 
-.container {
+/* .container {
   min-height: 'calc(100vh - 250px)';
   display: 'flex';
   align-items: 'center';
@@ -19,4 +23,4 @@
   font-weight: 500px;
   font-size: 48px;
   text-align: center;
-}
+} */

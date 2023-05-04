@@ -1,3 +1,4 @@
+import css from './LoginForm.module.css';
 import Notiflix from 'notiflix';
 
 import { useState } from 'react';
@@ -6,7 +7,6 @@ import { useDispatch } from 'react-redux';
 
 import { fetchLogIn } from 'redux/auth/fetchAuth';
 // import { selectIsLoggedIn } from 'redux/auth/selectors';
-import css from './LoginForm.module.css';
 
 export const LoginForm = () => {
   // const navigate = useNavigate();
@@ -43,7 +43,6 @@ export const LoginForm = () => {
     )
       .unwrap()
       .then(promise => {
-        console.log('handleSubmit >> promise:', promise.user.name);
         Notiflix.Notify.success(`Ласкаво просимо, ${promise.user.name}.`);
         // Можна і не чистити поля, бо все одно переходимо на іншу сторінку:
         // setUserEmail('');
@@ -64,8 +63,8 @@ export const LoginForm = () => {
         <input
           className="form-control me-2"
           // type="search"
-          placeholder="Search"
-          aria-label="Search"
+          placeholder="Enter your email here"
+          aria-label="email"
           type="email"
           name="email"
           onChange={getInput}
@@ -77,8 +76,8 @@ export const LoginForm = () => {
         <input
           className="form-control me-2"
           // type="search"
-          placeholder="Search"
-          aria-label="Search"
+          placeholder="Enter your password here"
+          aria-label="password"
           type="password"
           name="password"
           onChange={getInput}
