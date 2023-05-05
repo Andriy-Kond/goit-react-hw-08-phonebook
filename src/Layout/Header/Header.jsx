@@ -1,10 +1,10 @@
 import css from './Header.module.css';
 // import { Navigation } from '../Navigation/Navigation';
 // import { AuthNav } from '../AuthNav/AuthNav';
-import { UserMenu } from '../UserMenu/UserMenu';
+import { UserMenu } from '../../components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { selectUserToken } from 'redux/auth/selectors';
-import { StyledNavLink } from 'components/StyledNavLink';
+import { StyledNavLink } from 'components/StyledNavLink/StyledNavLink';
 
 export const Header = () => {
   // const isLoggedIn = useSelector(selectIsLoggedIn);

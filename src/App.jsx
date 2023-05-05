@@ -5,13 +5,15 @@ import { fetchCurrentUser } from 'redux/auth/fetchAuth';
 // import { selectIsLoggedIn } from 'redux/auth/selectors';
 
 import HomePage from 'pages/Home/HomePage';
-import SharedLayout from './SharedLayout';
-import PrivateRoute from './PrivatRoute/PrivatRoute';
-import PublicRoute from './PublicRoute/PublicRoute';
+import SharedLayout from './Layout/SharedLayout';
+import PrivateRoute from './components/PrivatRoute/PrivatRoute';
+import PublicRoute from './components/PublicRoute/PublicRoute';
 import { selectIsRefreshing } from 'redux/auth/selectors';
-import { BigPreLoader } from './Preloader/PreLoader';
+import { BigPreLoader } from './components/Preloader/PreLoader';
 
-const NotFoundPage = lazy(() => import('./NotFoundPage/NotFoundPage'));
+const NotFoundPage = lazy(() =>
+  import('./components/NotFoundPage/NotFoundPage')
+);
 const RegisterPage = lazy(() => import('pages/Register/RegisterPage'));
 const LoginPage = lazy(() => import('pages/Login/LoginPage'));
 const ContactsPage = lazy(() => import('pages/Contacts/ContactsPage'));
