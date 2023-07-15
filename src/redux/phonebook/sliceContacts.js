@@ -67,6 +67,7 @@ const sliceContacts = createSlice({
   extraReducers: builder => {
     builder
       // & Варіант 1 з addCase
+
       // .addCase(fetchContacts.pending, handlePending) // переніс у isAnyOf
       .addCase(fetchContacts.fulfilled, fetchHandleFulfilled)
       // .addCase(fetchContacts.rejected, handleRejected) // переніс у isAnyOf
